@@ -8,6 +8,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 import java.time.LocalDate;
 
 import static com.ipi.jva350.model.Entreprise.estDansPlage;
+import static com.ipi.jva350.model.Entreprise.estJourFerie;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EntrepriseTest {
@@ -32,5 +33,16 @@ class EntrepriseTest {
     })
     void testNEstPasDansPlage(LocalDate d, LocalDate debut, LocalDate fin) {
         assertEquals(estDansPlage(d, debut, fin), false);
+    }
+
+    @ParameterizedTest(name = "{0} est un jour ferie")
+    @CsvSource({
+            "'2022-01-01'",
+            "'2022-05-01'",
+            " '2022-07-14'",
+            " '2024-08-15'",
+    })
+    void testEstJourFerie(LocalDate jour){
+        assertEquals(estJourFerie(jour), true);
     }
 }
