@@ -7,8 +7,7 @@ import org.junit.jupiter.params.provider.CsvSource;
 
 import java.time.LocalDate;
 
-import static com.ipi.jva350.model.Entreprise.estDansPlage;
-import static com.ipi.jva350.model.Entreprise.estJourFerie;
+import static com.ipi.jva350.model.Entreprise.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class EntrepriseTest {
@@ -44,5 +43,23 @@ class EntrepriseTest {
     })
     void testEstJourFerie(LocalDate jour){
         assertEquals(estJourFerie(jour), true);
+    }
+
+    @ParameterizedTest(name = "Premier jour de congé selon {0}")
+    @CsvSource({
+            "'2022-05-01'",
+            " '2022-04-01'",
+    })
+    void testGetPremierJourAnneeDeCongesAvantJuin(LocalDate d){
+        assertEquals(getPremierJourAnneeDeConges(d), LocalDate.of(2021, 6, 1));
+    }
+
+    @ParameterizedTest(name = "Premier jour de congé selon {0}")
+    @CsvSource({
+            "'2022-07-01'",
+            " '2022-06-01'",
+    })
+    void testGetPremierJourAnneeDeCongesApresJuin(LocalDate d){
+        assertEquals(getPremierJourAnneeDeConges(d), LocalDate.of(2022, 6, 1));
     }
 }
