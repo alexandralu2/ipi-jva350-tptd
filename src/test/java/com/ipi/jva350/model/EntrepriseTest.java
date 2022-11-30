@@ -20,7 +20,7 @@ class EntrepriseTest {
             " '2022-07-03', '2022-07-02', '2022-07-04'",
     })
     void testEstDansPlage(LocalDate d, LocalDate debut, LocalDate fin) {
-        assertEquals(estDansPlage(d, debut, fin), true);
+        assertEquals(true, estDansPlage(d, debut, fin));
     }
 
     @ParameterizedTest(name = "{0} doit être compris entre {1} et {2}")
@@ -31,7 +31,7 @@ class EntrepriseTest {
             " '2022-07-06', '2022-07-02', '2022-07-04'",
     })
     void testNEstPasDansPlage(LocalDate d, LocalDate debut, LocalDate fin) {
-        assertEquals(estDansPlage(d, debut, fin), false);
+        assertEquals(false, estDansPlage(d, debut, fin));
     }
 
     @ParameterizedTest(name = "{0} est un jour ferie")
@@ -42,7 +42,7 @@ class EntrepriseTest {
             " '2024-08-15'",
     })
     void testEstJourFerie(LocalDate jour){
-        assertEquals(estJourFerie(jour), true);
+        assertEquals(true, estJourFerie(jour));
     }
 
     @ParameterizedTest(name = "Premier jour de congé selon {0}")
@@ -51,7 +51,7 @@ class EntrepriseTest {
             " '2022-04-01'",
     })
     void testGetPremierJourAnneeDeCongesAvantJuin(LocalDate d){
-        assertEquals(getPremierJourAnneeDeConges(d), LocalDate.of(2021, 6, 1));
+        assertEquals(LocalDate.of(2021, 6, 1), getPremierJourAnneeDeConges(d));
     }
 
     @ParameterizedTest(name = "Premier jour de congé selon {0}")
@@ -60,6 +60,6 @@ class EntrepriseTest {
             " '2022-06-01'",
     })
     void testGetPremierJourAnneeDeCongesApresJuin(LocalDate d){
-        assertEquals(getPremierJourAnneeDeConges(d), LocalDate.of(2022, 6, 1));
+        assertEquals(LocalDate.of(2022, 6, 1), getPremierJourAnneeDeConges(d));
     }
 }

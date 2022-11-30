@@ -10,7 +10,7 @@ import java.util.LinkedHashSet;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class SalarieAideADomicileTest {
+class SalarieAideADomicileTest {
 
     @Test
     void aLegalementDroitADesCongesPayesNonInitialise() {
