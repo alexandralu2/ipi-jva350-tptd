@@ -119,3 +119,4 @@ fichier ne dépasse pas 1 MO.
 - Rédigez **ci-dessous** une courte analyse du rapport produit par Sonar (métriques, évolution, état général...) :
 
 Le rapport Sonar final indique...
+Le nombre de code smells a diminué, pas de bug constaté, lse indicateurs sont verts.
