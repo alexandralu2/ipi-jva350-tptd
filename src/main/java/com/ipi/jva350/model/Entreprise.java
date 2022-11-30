@@ -144,8 +144,9 @@ public final class Entreprise {
     }
 
     public static boolean estDansPlage(LocalDate d, LocalDate debut, LocalDate fin) {
-        // à implémenter en TDD !
-        throw new NotImplementedException();
+        // Se demander les dates debut et fin sont incluses
+        return d.isAfter(debut) && d.isBefore(fin) || d.isEqual(debut) || d.isEqual(fin);
+
     }
 
 }
